@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="AllStudents.css">
+</head>
+
+<body>
+
+    <div class="StudentsWrapper">
+
+
+        <!-- .top Design Wrapper  -->
+        <div class="topDesignWrapper">
+            <!-- // top Design And Heading  -->
+            <div class="topDesignBanner">
+
+                <div class="heading">
+                    <span style="color: yellow; text-shadow: 1px 1px 1px black;">APNA</span><span
+                        style="text-decoration: underline yellow;">SCHOOL</span>
+                </div>
+            </div>
+            <!-- Design Div End  -->
+        </div>
+
+        <!-- // Studetn Information Design  -->
+        <div class="StudInformation">
+
+            <div class="NewAddmission">
+                <a href="/addmission"> <button class=" newAdd">
+                        New Addmission
+                    </button></a>
+            </div>
+            <table id="stud">
+
+                <thead>
+                    <th>sr</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Cast </th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>visit</th>
+
+                </thead>
+                <tbody >
+                    <tr></tr>
+                    {{!-- <td>1</td>
+                    <td>Salman</td>
+                    <td>11</td>
+                    <td>4th</td> --}}
+                    {{!-- <td> <a href="/singleStudent"><button class="button">View</button></a> </td> --}}
+                </tbody>
+            </table>
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+        <script>
+
+            async function visitNow(id){
+                console.log("inside onclix")
+                window.location.assign(`http://localhost:4000/singleStud/${id}`)
+            }
+            window.onload = async () => {
+
+
+                const users = await fetch(`http://localhost:4000/get/studInfo`)
+                const response = await users.json();
+
+                const allUsersData = response.data;
+                console.log("this is our data", allUsersData)
+
+                // Using Map function for Iterate in the every object
+                allUsersData.map((data, index) => {
+
+                    var table = document.querySelector(`#stud`);
+                    var newRow = table.insertRow(table.rows.length - 1);
+
+                    //  Fill The Data in the Cell  (Iterate in the every feild of object)
+                    Object.keys(data, index).forEach((key => {
+
+                        // Creating Value variable to fetch value form key
+
+                        const value = data[key];
+                        // Validating Some Information
+
+                        if (key == "_id") {
+                            var cell = newRow.insertCell(this.index);
+                            cell.innerHTML = `<p>${index + 1}</p>`;
+                            return;
+                        }
+                        if (key === "religion"
+                            || key === "lName"
+                            || key === "fatherName"
+                            || key === "email"
+                            || key === "pcb"
+                            || key === "id"
+                            || key === "createdAt"
+
+                        ) return;
+
+                        if (key === "__v") {
+                            var cell = newRow.insertCell(this.index);
+
+                            // Creating Buttons of Approval and Rjection 
+                            cell.innerHTML =
+                                ` <p style=" padding: 1rem;
+                                                width: 80%;
+                                                border: none;
+                                                box-shadow: 0px 0px 10px rgb(220, 220, 220);
+                                                font-size: 1.1rem;
+                                                font-weight: bold;
+                                                background-color: yellow;">
+ 
+                 <input id=${data._id} value=${data._id} onclick="visitNow(this.value)" style="display:none"/>
+                 <label for=${data._id} style="padding:1rem; width:90%"> visit</label>
+               </p>`;
+
+                            return;
+                        }
+
+
+                        // Creating Single Row
+                        var cell = newRow.insertCell(this.index);
+
+                        /// filling the data into the cell
+                        cell.innerHTML = `<p>${value}</p>`;
+                    }))
+
+                })
+            }
+
+
+
+        </script>
+
+    </div>
+</body>
+
+</html>

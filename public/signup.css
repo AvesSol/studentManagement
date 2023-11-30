@@ -1,0 +1,155 @@
+/* Start Font Link  */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,700;1,800&family=Mulish:ital,wght@0,300;0,400;0,600;0,800;1,300;1,400;1,500;1,700&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* End Font Link  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    word-break: break-all;
+}
+
+/* // Start Main Container  */
+.MainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(62, 197, 255);
+    /* position: fixed; */
+    width: 100%;
+    min-height: 100%;
+    z-index: 4;
+    padding: 2rem;
+}
+
+/* // End Main Container  */
+
+/* Corner Div Design Start  */
+.bottomleft {
+    background-color: teal;
+    position: fixed;
+    z-index: 5;
+    right: -18px;
+    top: -16px;
+    width: 15%;
+    height: 25%;
+    box-shadow: 5px 5px 8px gray;
+    border-bottom-left-radius: 78em;
+}
+
+.topRight {
+    background-color: teal;
+    position: fixed;
+    z-index: 5;
+    left: -18px;
+    bottom: -16px;
+    width: 10%;
+    height: 20%;
+    box-shadow: 5px 5px 8px gray;
+    border-top-right-radius: 78em;
+}
+
+/* corner Div Design End  */
+
+/* // Start Form Contaiener Styling  */
+.ContainerForSignupForm {
+    background-color: white;
+    width: 75%;
+    box-shadow: 2px 3px 8px gray;
+
+}
+
+
+/* // End Form Contaiener Styling  */
+
+
+/* // Styling Heading  Strat  */
+.FormHeading {
+    font-size: 2rem;
+    /* margin: 0.5rem 1rem; */
+    /* background-color: pink; */
+    box-shadow: 0px 2px 5px gray;
+    color: white;
+    padding: 0.5rem;
+    background-color: teal;
+
+
+}
+
+/* Styling Headding End  */
+
+/* Style Form  Start  */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 2rem;
+
+}
+
+/* Style Form End  */
+
+/* Manged Input And Label  by managed div  */
+.managed {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0rem;
+}
+
+/* Manged Input And Label  by managed div End */
+
+/* style label  */
+.Formlabel {
+    font-size: 1.2rem;
+    margin: 0.5rem 0rem;
+}
+
+/* Style label End  */
+
+/* Style Input Start  */
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    box-shadow: 1px 1px 4px gray;
+    border: none;
+    outline-color: teal;
+}
+/* Style input  End */
+
+
+/* Style Btn  */
+.btn{
+    /* margin: 1rem 0rem; */
+    padding: 0.5rem;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    width: 60%;
+    margin: 2rem auto;
+
+}
+/* Style Btn End  */
+
+/* // Style Home Btn  */
+.home{
+    margin: 1rem auto;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* Styl End Home Btn  */
+
+
+/* // Start Responsive Design  */
+@media screen and (min-width: 640px) {
+    .ContainerForSignupForm{
+        height: auto;
+        width: 60%;
+    }
+}
+/* End Responsive Design  */
+
